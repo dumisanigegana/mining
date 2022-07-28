@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ContactCompanyController;
 use App\Http\Controllers\Admin\ContactContactController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\DataController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\TransactionController;
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', '/login');
 
 Auth::routes(['register' => false]);
+Route::get('/', [DataController::class, 'create'])->name('data_create');
+Route::post('/submit', [DataController::class, 'store'])->name('data_store');
+
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');

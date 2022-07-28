@@ -8,6 +8,11 @@
                 <h6 class="card-title">
                     Dashboard
                 </h6>
+                <div id="perf_div"></div>
+
+
+            
+            @columnchart('Finances', 'perf_div')
             </div>
         </div>
 

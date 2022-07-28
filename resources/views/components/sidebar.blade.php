@@ -100,12 +100,12 @@
                         </ul>
                     </li>
                 @endcan
-                @can('transaction_access')
+                @can('blog_admin_access')
                     <li class="items-center">
-                        <a class="{{ request()->is("admin/transactions*") ? "sidebar-nav-active" : "sidebar-nav" }}" href="{{ route("admin.transactions.index") }}">
+                        <a class="{{ request()->is("/blog_admin/*") ? "sidebar-nav-active" : "sidebar-nav" }}" href="{{url('blog_admin')}}">
                             <i class="fa-fw c-sidebar-nav-icon fas fa-cogs">
                             </i>
-                            {{ trans('cruds.transaction.title') }}
+                           Articles Administration
                         </a>
                     </li>
                 @endcan
